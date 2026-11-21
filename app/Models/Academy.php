@@ -31,4 +31,10 @@ class Academy extends Model
     {
         return $this->hasMany(Course::class);
     }
+
+    // Comprobar si un usuario es propietario de la academia
+    public function isOwnedBy(User $user): bool
+    {
+        return (int) $this->user_id === (int) $user->id;
+    }
 }
